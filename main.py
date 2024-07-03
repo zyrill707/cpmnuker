@@ -86,10 +86,16 @@ def load_key_data(cpm):
     console.print("[bold][red]========[/red][ ACCESS KEY DETAILS ][red]========[/red][/bold]")
     console.print(f"[bold green] Access Key [/bold green]: {data.get('access_key')}.")
     console.print(f"[bold green] Telegram ID[/bold green]: {data.get('telegram_id')}.")
-    console.print(
-        f"[bold green] Credits    [/bold green]: {(data.get('coins') if not data.get('is_unlimited') else 'Unlimited')}.")
-    console.print("[bold][red]======================================[/red][/bold]")
+    
+    # Determine the credits text based on whether it's unlimited or not
+    credits_text = f"[bold green] Credits    [/bold green]: "
+    if data.get('is_unlimited'):
+        credits_text += "Unlimited."
+    else:
+        credits_text += f"{data.get('coins')}."
 
+    console.print(credits_text)
+    console.print("[bold][red]======================================[/red][/bold]")
 def prompt_valid_value(content, tag, password=False):
     while True:
         value = Prompt.ask(content, password=password)
