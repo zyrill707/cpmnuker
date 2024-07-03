@@ -27,7 +27,6 @@ def prompt_valid_value(content, tag, password=False):
             print(f"{tag} cannot be empty or just spaces. Please try again.")
         else:
             return value
-
 # Function to generate rainbow-colored string
 def rainbow_gradient_string(customer_name):
     # Generates a rainbow gradient effect on customer_name
