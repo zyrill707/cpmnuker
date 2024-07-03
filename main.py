@@ -229,22 +229,26 @@ if __name__ == "__main__":
                     console.print("[bold yellow][!] Please use valid values.[/bold yellow]")
                     sleep(2)
                     continue
-            elif service == 3: # King Rank
-                console.print("[bold red][!] Note:[/bold red]: if the king rank doesn't appear in game, close it and open few times.", end=None)
-                console.print("[bold red][!] Note:[/bold red]: please don't do King Rank on same account twice.", end=None)
-                sleep(2)
-                console.print("[bold cyan][%] Giving you a King Rank[/bold cyan]: ", end=None)
-                if cpm.set_player_rank():
-                    console.print("[bold green]SUCCESSFUL.[/bold green]")
-                    console.print("==================================")
-                    answ = Prompt.ask("[bold cyan][?] Do You want to Exit ?[/bold cyan]", choices=["y", "n"], default="n")
-                    if answ == "y": console.print(f"[bold yellow][!] Thank You for using our tool, please join our telegram channel[/bold yellow]: [bold blue]@{__CHANNEL_USERNAME__}[/bold blue].")
-                    else: continue
-                else:
-                    console.print("[bold red]FAILED.[/bold red]")
-                    console.print("[bold yellow][!] Please try again.[/bold yellow]")
-                    sleep(2)
-                    continue
+            elif service == 3:  # King Rank
+    console.print("[bold red][!] Note:[/bold red]: if the king rank doesn't appear in game, close it and open few times.", end=None)
+    console.print("[bold red][!] Note:[/bold red]: please don't do King Rank on same account twice.", end=None)
+    sleep(2)
+    console.print("[bold cyan][%] Giving you a King Rank[/bold cyan]: ", end=None)
+    
+    # Call the function to set player rank
+    if cpm.set_player_rank():
+        console.print("[bold green]SUCCESSFUL.[/bold green]")
+        console.print("==================================")
+        answ = Prompt.ask("[bold cyan][?] Do You want to Exit ?[/bold cyan]", choices=["y", "n"], default="n")
+        if answ == "y":
+            console.print(f"[bold yellow][!] Thank You for using our tool, please join our telegram channel[/bold yellow]: [bold blue]@{__CHANNEL_USERNAME__}[/bold blue].")
+        else:
+            continue
+    else:
+        console.print("[bold red]FAILED.[/bold red]")
+        console.print("[bold yellow][!] Please try again.[/bold yellow]")
+        sleep(2)
+        continue
             elif service == 4: # Change ID
                 console.print("[bold cyan][!] Enter your new ID.[/bold cyan]")
                 new_id = Prompt.ask("[bold][?] ID[/bold]")
